@@ -4,8 +4,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Collection;
 
+import dao.AlbumDAO;
+import dao.MusicaDAO;
 import interfaces.IRadioService;
 import model.Album;
+import model.Musica;
 
 public class RadioService extends UnicastRemoteObject implements IRadioService{
 
@@ -17,14 +20,20 @@ public class RadioService extends UnicastRemoteObject implements IRadioService{
 
 	@Override
 	public void tocaMusica(Integer codigoDaMusica, Album album) throws RemoteException {
-		// TODO Auto-generated method stub
-		System.out.println("Toca Musica");
+		MusicaDAO musicaDao = new MusicaDAO();
+		Musica musica = musicaDao.retornaMusica(codigoDaMusica, album.getId());
+		if(musica!=null) {
+			System.out.println(musica.getLetra());
+		}else {
+			System.out.println("Musica não está disponivel no nosso acervo no momento");
+		}
+		
 	}
 
 	@Override
 	public Album recuperaAlbum(String nomeDoAlbum) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		AlbumDAO albumDAO = new AlbumDAO();
+		return albumDAO.findAlbumByNome(nomeDoAlbum);
 	}
 
 	@Override
