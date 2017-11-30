@@ -42,4 +42,10 @@ public class RadioService extends UnicastRemoteObject implements IRadioService{
 		return null;
 	}
 
+	@Override
+	public String sintoniza() {
+		String mensagemDeBoasVindas = "Você está escutando a RockStar Radio, 3,14fm";
+		return null;
+	}
+
 }
