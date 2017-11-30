@@ -9,6 +9,7 @@ public class Musica implements Serializable{
 	private Integer id;
 	private Integer idAlbum;
 	private Integer numeroDaFaixa;
+	private String nomeDaFaixa;
 	private String letra;
 	
 	
@@ -35,6 +36,12 @@ public class Musica implements Serializable{
 	}
 	public void setLetra(String letra) {
 		this.letra = letra;
+	}
+	public String getNomeDaFaixa() {
+		return nomeDaFaixa;
+	}
+	public void setNomeDaFaixa(String nomeDaFaixa) {
+		this.nomeDaFaixa = nomeDaFaixa;
 	}
 
 }
